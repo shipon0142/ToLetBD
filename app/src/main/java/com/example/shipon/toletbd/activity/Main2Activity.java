@@ -6,7 +6,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,12 +21,18 @@ public class Main2Activity extends AppCompatActivity {
 
 LinearLayout mainLayout;
 
-
+Toolbar toolbar;
+TextView postText,titleText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
+        toolbar = (Toolbar) findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
+        postText=findViewById(R.id.PostText);
+        titleText=findViewById(R.id.TitleText);
+        titleText.setText("Search by location");
+        postText.setText("");
         FragmentManager manage = getSupportFragmentManager();
         FragmentTransaction transactio = manage.beginTransaction();
         SearchHomeFragment searchHomeFragment=new SearchHomeFragment();
@@ -45,6 +53,8 @@ LinearLayout mainLayout;
 
                     return true;
                 case R.id.navigation_dashboard:
+                    titleText.setText("Post as owner");
+                    postText.setText("Post");
                     FragmentManager manager = getSupportFragmentManager();
                     FragmentTransaction transaction = manager.beginTransaction();
                     PostFragment postFragment = new PostFragment();
@@ -52,6 +62,8 @@ LinearLayout mainLayout;
 
                     return true;
                 case R.id.navigation_notifications:
+                    titleText.setText("Search by location");
+                    postText.setText("");
                     FragmentManager manage = getSupportFragmentManager();
                     FragmentTransaction transactio = manage.beginTransaction();
                     SearchHomeFragment searchHomeFragment=new SearchHomeFragment();
@@ -62,4 +74,6 @@ LinearLayout mainLayout;
         }
     };
 
+    public void clickPost(View view) {
+    }
 }

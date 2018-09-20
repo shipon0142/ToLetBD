@@ -5,14 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background1"
     tools:context="com.example.shipon.toletbd.fragment.SearchHomeFragment">
-<TextView
-    android:background="@color/background_text"
-    android:textSize="25sp"
-    android:textColor="#FFFFFF"
-    android:gravity="center"
-    android:text="Search by location"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+
 
     <TextView
         android:layout_marginTop="15dp"
