@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "131556912754",
+    "firebase_url": "https://toletbd-e9038.firebaseio.com",
+    "project_id": "toletbd-e9038",
+    "storage_bucket": "toletbd-e9038.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131556912754:android:ce3aa940b1696a43",
+        "android_client_info": {
+          "package_name": "com.example.shipon.toletbd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131556912754-b7erfhi4fibvan3n67393r5vmtdfv5rl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shipon.toletbd",
+            "certificate_hash": "914c8ff2eb2b8c0f7afdbc0347b3ab0d1a601dbe"
+          }
+        },
+        {
+          "client_id": "131556912754-t6e79ei7f2ig5vd1gd3a3qb41smhnlk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQO-1_H9CtHwooIclXdZ8coMXjcTrjKZ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131556912754-t6e79ei7f2ig5vd1gd3a3qb41smhnlk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
