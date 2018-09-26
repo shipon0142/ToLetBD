@@ -16,6 +16,8 @@ import android.widget.Toolbar;
 
 import com.example.shipon.toletbd.R;
 import com.example.shipon.toletbd.activity.Main2Activity;
+import com.example.shipon.toletbd.database.FirebaseClient;
+import com.example.shipon.toletbd.models.Apartment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +30,7 @@ public class PostFragment extends Fragment{
     Spinner catagorySpinner;
     Spinner monthSpinner;
     String catagoryType,monthName;
-    EditText districtET,areaET,costET,detailsET;
+    EditText districtET,areaET,costET,detailsET,houseET;
       TextView toolbarPost;
     public PostFragment() {
         // Required empty public constructor
@@ -47,6 +49,7 @@ public class PostFragment extends Fragment{
         areaET=view.findViewById(R.id.AreaET);
         costET=view.findViewById(R.id.CostET);
         detailsET=view.findViewById(R.id.DistrictET);
+        houseET=view.findViewById(R.id.HouseET);
         ArrayAdapter<String> catagoryArrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.spinner_layout, catagory);
         ArrayAdapter<String> monthArrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.spinner_layout, month);
         catagoryArrayAdapter.setDropDownViewResource(android.R.layout
@@ -64,7 +67,20 @@ public class PostFragment extends Fragment{
         toolbarPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Toast.makeText(getContext(),"ok",Toast.LENGTH_SHORT).show();
+                if(checkAll()){
+                    String district=districtET.getText().toString();
+                    String area=areaET.getText().toString();
+                    String houseNo=houseET.getText().toString();
+                    String catagory=catagoryType.toString();
+                    String month=monthName.toString();
+                    String cost=costET.getText().toString();
+                    String details=detailsET.getText().toString();
+                    Apartment newApartment=new Apartment("Shipon Sarder","01942040142",
+                            district,area,catagory,month,details,houseNo,cost);
+                    FirebaseClient client=new FirebaseClient();
+                    client.addApartment(newApartment);
+                    Toast.makeText(getContext(),"All ok",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -92,6 +108,42 @@ public class PostFragment extends Fragment{
 
             }
         });
+    }
+    private boolean checkAll(){
+        boolean flag=true;
+        if(detailsET.getText().toString().equals("")){
+            detailsET.setError("This field can,t be empty");
+            flag=false;
+        }
+        if(areaET.getText().toString().equals("")){
+            areaET.setError("This field can,t be empty");
+            flag=false;
+        }
+        if(houseET.getText().toString().equals("")){
+            houseET.setError("This field can,t be empty");
+            flag=false;
+        }
+        if(costET.getText().toString().equals("")){
+            costET.setError("This field can,t be empty");
+            flag=false;
+        }
+        if(detailsET.getText().toString().equals("")){
+            detailsET.setError("This field can,t be empty");
+            flag=false;
+        }
+        if(catagoryType.toString().contains("Select")){
+            // Toast.makeText(getContext(),"Select catagory field",Toast.LENGTH_SHORT).show();
+            flag=false;
+        }
+        if(monthName.toString().equals("Select")){
+            flag=false;
+            // detailsET.setError("This field can,t be empty");
+        }
+        if(flag==false){
+            Toast.makeText(getContext(),"Select fill all the field",Toast.LENGTH_SHORT).show();
+        }
+        return flag;
+
     }
 
 }
