@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#154C6D"
+    tools:context="com.example.shipon.toletbd.activity.DetailsActivity">
+    <android.support.v7.widget.Toolbar
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:drawableTint="#FFFFFF"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="#FFFFFF"
+                android:text="Details"
+                android:textSize="20sp"
+                android:layout_weight="7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/room"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+            <LinearLayout
+
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                  android:scaleType="fitXY"
+                    android:src="@drawable/room"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/room"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/room"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/room"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+            </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center|left"
+                    android:layout_marginTop="3dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                    android:text="21/8,Mohammadpur,Dhaka"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                    <LinearLayout
+
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:gravity="center|left"
+                            android:textColor="#000000"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                            android:textSize="16sp"
+                            android:text="October"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:gravity="center|left"
+
+                            android:textColor="#000000"
+                            android:layout_marginLeft="10dp"
+                            android:drawableLeft="@drawable/ic_home_black_24dp"
+                            android:textSize="16sp"
+                            android:text="Sublet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <TextView
+                        android:gravity="center|left"
+                        android:textColor="#000000"
+
+                        android:drawableLeft="@drawable/ic_attach_money_black_24dp"
+                        android:textSize="16sp"
+                        android:text="20000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:background="#154C6D"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp" />
+                    <TextView
+                        android:gravity="center|left"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:text="Owner Name : Shipon Sarder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:gravity="center|left"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:text="Contact : 01942040142"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:background="#154C6D"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp" />
+                    <TextView
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="17sp"
+                        android:text="Description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:backgroundTint="#808080"
+                        android:background="@drawable/rectangle_edittext"
+                        android:padding="5dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:text="3 room+ 2 bathroom + Kitchen"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/rectangle_edittext"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:text="Call now"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/rectangle_edittext"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:text="Message"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/rectangle_edittext"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:text="Request"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
