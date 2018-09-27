@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import static com.example.shipon.toletbd.activity.Main2Activity.USER;
+import static com.example.shipon.toletbd.activity.Main2Activity.USER_NAME;
 import static com.example.shipon.toletbd.activity.Main2Activity.USER_PHONE;
 
 /**
@@ -32,7 +33,7 @@ public class OwnerSigninFragment extends Fragment {
     TextView ownerSigninTV;
     EditText ownerPhonenoET,ownerPasswordET;
     CheckBox ownerRememberPasswordCB;
-    String Phoneno;
+    String Phoneno,Name;
     String Password;
     DatabaseReference myDatabaseRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference appertmentsRef = myDatabaseRef.child("Appertments");
@@ -67,15 +68,18 @@ public class OwnerSigninFragment extends Fragment {
                         for (DataSnapshot dsp : dataSnapshot.getChildren()) {
 
                             Phoneno = (String) dsp.child("contact").getValue();
+                           Name = (String) dsp.child("name").getValue();
                             Password = (String) dsp.child("password").getValue();
                             if (ownerPhonenoET.getText().toString().equals(Phoneno) && ownerPasswordET.getText().toString().equals(Password)) {
                                 flag = true;
+                                break;
 
                             }
                         }
                         if(flag==true){
                             USER="owner";
                             USER_PHONE=Phoneno;
+                            USER_NAME=Name;
 
                             Toast.makeText(getContext(),"Succesful",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getActivity(),Main2Activity.class);

@@ -2,18 +2,28 @@ package com.example.shipon.toletbd.adopter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.shipon.toletbd.R;
 import com.example.shipon.toletbd.activity.DetailsActivity;
 import com.example.shipon.toletbd.models.Apartment;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static com.example.shipon.toletbd.activity.Main2Activity.apartment1;
 
 
 /**
@@ -27,7 +37,7 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private ArrayList<Apartment>apartments;
-
+    private StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference();
     //private StorageReference firebaseStorage=FirebaseStorage.getInstance().getReferenceFromUrl("https://firebasestorage.googleapis.com/v0/b/khaidai-65b30.appspot.com/o/foodimage%2F110.png?alt=media&token=13e72acb-044a-484c-b021-f9c2cb1c7867");
     // data is passed into the constructor
     public ApartmentAdopter(Context context, ArrayList<Apartment> apartments) {
@@ -46,17 +56,30 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         // String animal = mData.get(position);
          holder.locationTV.setText(apartments.get(position).getDistrictOwner()+","+apartments.get(position).getAreaOwner());
          holder.monthTV.setText(apartments.get(position).getFromMonth());
          holder.catagoryTV.setText(apartments.get(position).getHomeCatagory());
          holder.costTV.setText("BDT: "+apartments.get(position).getCostHome());
+         holder.progressBar.setVisibility(View.VISIBLE);
         holder.detailsTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                apartment1=apartments.get(position);
                 Intent intent=new Intent(mContext, DetailsActivity.class);
+                intent.putExtra("position",position);
                 mContext.startActivity(intent);
+            }
+        });
+        StorageReference storageRef = firebaseStorage.child("Photos").child(apartments.get(position).getKey()).child("img1");
+        Task<Uri> uri = storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                //   Log.e("URI", uri.toString());
+                Picasso.with(mContext).load(uri).into(holder.roomImg1IV);
+                holder.progressBar.setVisibility(View.GONE);
+
             }
         });
         //   Picasso.with(holder.photo.getContext()).load().into(holder.photo);
@@ -81,6 +104,8 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
         TextView monthTV;
         TextView catagoryTV,costTV,detailsTV;
         LinearLayout linearLayout;
+        ProgressBar progressBar;
+        ImageView roomImg1IV;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -89,6 +114,8 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
             catagoryTV = (TextView) itemView.findViewById(R.id.CatagoryTV);
             costTV= (TextView) itemView.findViewById(R.id.CostTV);
             detailsTV= (TextView) itemView.findViewById(R.id.DetailsTV);
+            progressBar=  itemView.findViewById(R.id.ProgressBar);
+            roomImg1IV=  itemView.findViewById(R.id.RoomImg1IV);
              //poffer = (TextView) itemView.findViewById(R.id.idOffer);
            // pdeadline = (TextView) itemView.findViewById(R.id.idDeadline);
 

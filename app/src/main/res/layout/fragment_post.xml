@@ -177,6 +177,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <ImageView
+                        android:id="@+id/AddPhoto1IV"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </FrameLayout>
@@ -194,6 +195,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <ImageView
+                        android:id="@+id/AddPhoto2IV"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </FrameLayout>
@@ -216,6 +218,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <ImageView
+                        android:id="@+id/AddPhoto3IV"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </FrameLayout>
@@ -233,6 +236,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <ImageView
+                        android:id="@+id/AddPhoto4IV"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </FrameLayout>
@@ -241,7 +245,7 @@
                 android:textSize="16sp"
                 android:layout_marginTop="5dp"
                 android:textColor="#154C6D"
-
+android:layout_marginLeft="10dp"
                 android:text="Details*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -255,7 +259,7 @@
                 android:textColorHint="#FFFFFF"
                 android:textColor="#FFFFFF"
                 android:hint=""
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="80dp" />
         </LinearLayout>

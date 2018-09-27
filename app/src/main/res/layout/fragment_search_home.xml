@@ -3,13 +3,22 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background1"
+    android:background="@color/color2"
     tools:context="com.example.shipon.toletbd.fragment.SearchHomeFragment">
 
+<android.support.v7.widget.CardView
+    android:layout_margin="15dp"
+    android:layout_width="match_parent"
 
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_marginTop="15dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/color2"
         android:gravity="center"
         android:text="District/City (Optional)"
         android:layout_width="match_parent"
@@ -23,8 +32,8 @@
         android:gravity="center"
         android:foregroundGravity="left"
         android:textSize="14sp"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
+        android:textColorHint="@color/color2"
+        android:textColor="@color/color2"
         android:hint="আপনার জেলা/শহরের নাম"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
@@ -32,7 +41,7 @@
 
     <TextView
         android:layout_marginTop="15dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/color2"
         android:gravity="center"
         android:text="Area (Optional)"
         android:layout_width="match_parent"
@@ -46,15 +55,15 @@
         android:gravity="center"
         android:foregroundGravity="left"
         android:textSize="14sp"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
+        android:textColorHint="@color/color2"
+        android:textColor="@color/color2"
         android:hint="আপনার এলাকার নাম"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
         android:layout_marginTop="15dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/color2"
         android:gravity="center"
         android:text="Category (Optional)"
         android:layout_width="match_parent"
@@ -75,6 +84,7 @@
         android:id="@+id/SearchTV"
         android:textSize="16sp"
         android:textColor="#FFFFFF"
+        android:backgroundTint="@color/color2"
         android:layout_marginTop="15dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -85,6 +95,6 @@
         android:text="Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-
+    </LinearLayout>
+</android.support.v7.widget.CardView>
 </LinearLayout>

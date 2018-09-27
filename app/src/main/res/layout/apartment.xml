@@ -11,14 +11,26 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <FrameLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:id="@+id/ProgressBar"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
         <ImageView
+            android:id="@+id/RoomImg1IV"
             android:scaleType="fitXY"
-            android:src="@drawable/room"
+
             android:layout_width="match_parent"
             android:layout_height="150dp" />
+            </FrameLayout>
             <TextView
                 android:id="@+id/LocationTV"
-                android:textColor="#000000"
+                android:textColor="@color/color2"
+                android:drawableTint="@color/color2"
                 android:layout_marginTop="5dp"
                 android:drawableLeft="@drawable/ic_location_on_black_24dp"
                 android:textSize="15sp"
@@ -32,7 +44,8 @@
                 android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/MonthTV"
-                android:textColor="#000000"
+                android:textColor="@color/color2"
+                android:drawableTint="@color/color2"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_date_range_black_24dp"
                 android:textSize="15sp"
@@ -41,7 +54,8 @@
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/CatagoryTV"
-                android:textColor="#000000"
+                android:textColor="@color/color2"
+                android:drawableTint="@color/color2"
                 android:layout_marginLeft="10dp"
                 android:drawableLeft="@drawable/ic_home_black_24dp"
                 android:textSize="15sp"
@@ -51,10 +65,12 @@
             </LinearLayout>
             <TextView
                 android:id="@+id/CostTV"
-                android:textColor="#000000"
+                android:textColor="@color/color2"
+                android:drawableTint="@color/color2"
                 android:layout_marginTop="2dp"
                 android:textSize="15sp"
                 android:text="BDT: 8000"
+                android:layout_marginLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <LinearLayout
@@ -71,6 +87,7 @@
                     android:textColor="#FFFFFF"
                     android:background="@drawable/rectangle_edittext"
                     android:text="Details"
+                    android:backgroundTint="@color/color2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>

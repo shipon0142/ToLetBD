@@ -92,7 +92,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
 
-                        android:background="@color/colorPrimary"
+                        android:background="@color/color2"
                         android:text="Verify"
                         android:textAllCaps="false"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"

@@ -33,7 +33,9 @@ public class Main2Activity extends AppCompatActivity {
     TextView postText, titleText;
     public static String USER = "null";
     public static String USER_PHONE = "null";
+    public static String USER_NAME = "null";
     public static ArrayList<Apartment> apartments = new ArrayList<>();
+    public static Apartment apartment1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

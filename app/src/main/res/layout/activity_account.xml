@@ -62,32 +62,57 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="Profile"
+                android:layout_marginTop="10dp"
+                android:text="  Profile"
+                android:textColor="#15416A"
+                android:drawableTint="#15416A"
+                android:gravity="center|left"
+                android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:layout_marginTop="10dp"
-                android:text="My Post"
+                android:layout_marginTop="15dp"
+                android:text="  My Post"
+                android:textColor="#15416A"
+                android:drawableTint="#15416A"
+                android:gravity="center|left"
+                android:drawableLeft="@drawable/ic_chat_bubble_outline_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:layout_marginTop="10dp"
-                android:text="Message"
+                android:layout_marginTop="15dp"
+                android:text="  Message"
+                android:textColor="#15416A"
+                android:drawableTint="#15416A"
+                android:gravity="center|left"
+                android:drawableLeft="@drawable/ic_drafts_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:layout_marginTop="10dp"
-                android:text="Switch account"
+                android:layout_marginTop="15dp"
+                android:text="  Switch account"
+                android:textColor="#15416A"
+                android:drawableTint="#15416A"
+                android:gravity="center|left"
+                android:drawableLeft="@drawable/ic_face_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:layout_marginTop="10dp"
-                android:text="Notification"
+                android:layout_marginTop="15dp"
+                android:text="  Notification"
+                android:textColor="#15416A"
+                android:drawableTint="#15416A"
+                android:gravity="center|left"
+                android:drawableLeft="@drawable/ic_notifications_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:layout_marginTop="10dp"
-                android:text="Help"
+                android:layout_marginTop="15dp"
+                android:text="  Help"
+                android:textColor="#15416A"
+                android:drawableTint="#15416A"
+                android:gravity="center|left"
+                android:drawableLeft="@drawable/ic_help_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

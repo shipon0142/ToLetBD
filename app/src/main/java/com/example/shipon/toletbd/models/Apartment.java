@@ -7,6 +7,20 @@ package com.example.shipon.toletbd.models;
 public class Apartment {
 
     public Apartment(String nameOwner, String contactOwner, String districtOwner, String areaOwner, String homeCatagory,
+                     String fromMonth, String detailsOwnerHome, String houseNo, String costHome,String key,String size) {
+        this.nameOwner = nameOwner;
+        this.contactOwner = contactOwner;
+        this.districtOwner = districtOwner;
+        this.areaOwner = areaOwner;
+        this.homeCatagory = homeCatagory;
+        this.fromMonth = fromMonth;
+        this.costHome = costHome;
+        this.detailsOwnerHome = detailsOwnerHome;
+        this.houseNo=houseNo;
+        this.key=key;
+        this.size=size;
+    }
+    public Apartment(String nameOwner, String contactOwner, String districtOwner, String areaOwner, String homeCatagory,
                      String fromMonth, String detailsOwnerHome, String houseNo, String costHome) {
         this.nameOwner = nameOwner;
         this.contactOwner = contactOwner;
@@ -17,12 +31,25 @@ public class Apartment {
         this.costHome = costHome;
         this.detailsOwnerHome = detailsOwnerHome;
         this.houseNo=houseNo;
+
+
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    private String key;
     private String nameOwner;
     private String contactOwner;
     private String districtOwner;
     private String areaOwner;
+
+    public String getSize() {
+        return size;
+    }
+
+    private String size;
 
     public String getNameOwner() {
         return nameOwner;
