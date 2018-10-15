@@ -88,22 +88,7 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-
-                        android:textColor="@color/color2"
-                        android:gravity="center"
-                        android:text="Don,t have account?"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:layout_weight="1"
-                        android:textColor="@color/color2"
-                        android:gravity="center"
-                        android:text="Create Account"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"></LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </LinearLayout>

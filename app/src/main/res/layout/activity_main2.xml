@@ -18,8 +18,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:onClick="clickAccount"
+
         android:src="@drawable/ic_account_circle_black_24dp"
         android:layout_weight="1"
         android:layout_width="0dp"

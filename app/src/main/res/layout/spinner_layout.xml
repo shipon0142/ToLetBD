@@ -6,6 +6,6 @@
     android:layout_height="wrap_content"
     android:textSize="14sp"
     android:gravity="center"
-    android:textColor="#FFFFFF"
+    android:textColor="#000000"
 
     />

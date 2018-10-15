@@ -2,19 +2,26 @@ package com.example.shipon.toletbd.adopter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.shipon.toletbd.MyCallbackClass;
 import com.example.shipon.toletbd.R;
 import com.example.shipon.toletbd.activity.DetailsActivity;
 import com.example.shipon.toletbd.models.Apartment;
+import com.example.shipon.toletbd.models.CustomRenterLoginClass;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
@@ -23,6 +30,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static com.example.shipon.toletbd.activity.Main2Activity.USER;
 import static com.example.shipon.toletbd.activity.Main2Activity.apartment1;
 
 
@@ -61,17 +69,51 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
          holder.locationTV.setText(apartments.get(position).getDistrictOwner()+","+apartments.get(position).getAreaOwner());
          holder.monthTV.setText(apartments.get(position).getFromMonth());
          holder.catagoryTV.setText(apartments.get(position).getHomeCatagory());
-         holder.costTV.setText("BDT: "+apartments.get(position).getCostHome());
+         holder.costTV.setText("Cost: "+apartments.get(position).getCostHome()+" BDT");
+         if(apartments.get(position).getSize().equals("yes")){
+             holder.ablTV.setText("Available");
+             holder.ablTV.setTextColor(Color.parseColor("#008000"));
+         }
+         else {
+             holder.ablTV.setText("Not Available");
+             holder.ablTV.setTextColor(Color.parseColor("#FF0000"));
+         }
          holder.progressBar.setVisibility(View.VISIBLE);
         holder.detailsTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apartment1=apartments.get(position);
-                Intent intent=new Intent(mContext, DetailsActivity.class);
-                intent.putExtra("position",position);
-                mContext.startActivity(intent);
+                if(apartments.get(position).getSize().equals("no")){
+                    Toast.makeText(mContext,"Thias Apartment Not Available",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(USER.equals("null") || USER.equals("owner")){
+                    Toast.makeText(mContext,"Please Login as Renter",Toast.LENGTH_SHORT).show();
+                    CustomRenterLoginClass customLoginClass=new CustomRenterLoginClass(mContext, "r", new MyCallbackClass() {
+                        @Override
+                        public void callback(String value) {
+                            if(value.equals("ok")){
+                                apartment1 = apartments.get(position);
+                                Intent intent = new Intent(mContext, DetailsActivity.class);
+                                intent.putExtra("position", position);
+                                mContext.startActivity(intent);
+                            }
+                        }
+                    });
+                    customLoginClass.show();
+                    Window window = customLoginClass .getWindow();
+                    window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                }
+                else {
+                    apartment1 = apartments.get(position);
+                    Intent intent = new Intent(mContext, DetailsActivity.class);
+                    intent.putExtra("position", position);
+                    mContext.startActivity(intent);
+                }
+
+
             }
         });
+
         StorageReference storageRef = firebaseStorage.child("Photos").child(apartments.get(position).getKey()).child("img1");
         Task<Uri> uri = storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -80,6 +122,11 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
                 Picasso.with(mContext).load(uri).into(holder.roomImg1IV);
                 holder.progressBar.setVisibility(View.GONE);
 
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                holder.detailsTV.setText(e.getMessage().toString());
             }
         });
         //   Picasso.with(holder.photo.getContext()).load().into(holder.photo);
@@ -102,7 +149,7 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView locationTV;
         TextView monthTV;
-        TextView catagoryTV,costTV,detailsTV;
+        TextView catagoryTV,costTV,detailsTV,ablTV;
         LinearLayout linearLayout;
         ProgressBar progressBar;
         ImageView roomImg1IV;
@@ -116,6 +163,7 @@ public class ApartmentAdopter extends RecyclerView.Adapter<ApartmentAdopter.View
             detailsTV= (TextView) itemView.findViewById(R.id.DetailsTV);
             progressBar=  itemView.findViewById(R.id.ProgressBar);
             roomImg1IV=  itemView.findViewById(R.id.RoomImg1IV);
+            ablTV=  itemView.findViewById(R.id.AblTV);
              //poffer = (TextView) itemView.findViewById(R.id.idOffer);
            // pdeadline = (TextView) itemView.findViewById(R.id.idDeadline);
 

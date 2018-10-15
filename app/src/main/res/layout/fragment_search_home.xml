@@ -23,7 +23,9 @@
         android:text="District/City (Optional)"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <EditText
+    <AutoCompleteTextView
+        android:completionThreshold="1"
+        android:id="@+id/DistrictSearchET"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         android:layout_marginLeft="30dp"
@@ -31,13 +33,13 @@
         android:background="@drawable/rectangle_edittext"
         android:gravity="center"
         android:foregroundGravity="left"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textColorHint="@color/color2"
         android:textColor="@color/color2"
-        android:hint="আপনার জেলা/শহরের নাম"
+        android:hint="Your district/city name"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp" />
 
     <TextView
         android:layout_marginTop="15dp"
@@ -46,7 +48,9 @@
         android:text="Area (Optional)"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <EditText
+    <AutoCompleteTextView
+        android:completionThreshold="1"
+        android:id="@+id/AreaSearchET"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         android:layout_marginLeft="30dp"
@@ -54,13 +58,13 @@
         android:background="@drawable/rectangle_edittext"
         android:gravity="center"
         android:foregroundGravity="left"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textColorHint="@color/color2"
         android:textColor="@color/color2"
-        android:hint="আপনার এলাকার নাম"
+        android:hint="Your area name"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp" />
     <TextView
         android:layout_marginTop="15dp"
         android:textColor="@color/color2"
@@ -76,10 +80,10 @@
         android:layout_marginRight="30dp"
         android:background="@drawable/rectangle_edittext"
         android:gravity="center"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp" />
     <TextView
         android:id="@+id/SearchTV"
         android:textSize="16sp"

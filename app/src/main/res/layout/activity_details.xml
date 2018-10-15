@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-
+android:onClick="clickDetailsBackArrow"
                 android:drawableTint="#FFFFFF"
                 android:textSize="20sp"
                 android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.CardView
-            android:layout_margin="3dp"
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -141,7 +141,6 @@
                         android:textColor="@color/color2"
                         android:drawableTint="@color/color2"
 
-                        android:drawableLeft="@drawable/ic_attach_money_black_24dp"
                         android:textSize="16sp"
                         android:text="20000"
                         android:layout_width="match_parent"
@@ -183,7 +182,7 @@
                         android:layout_height="wrap_content" />
                     <TextView
                         android:id="@+id/DDescriptionTV"
-                        android:backgroundTint="#b6b59d"
+
                         android:background="@drawable/rectangle_edittext"
                         android:padding="5dp"
                         android:textColor="@color/color2"
@@ -203,6 +202,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                     <TextView
+                        android:onClick="ClickCallDetails"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
                         android:padding="5dp"
@@ -214,20 +214,9 @@
                         android:text="Call now"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" />
+
                         <TextView
-                            android:layout_marginLeft="2dp"
-                            android:layout_marginRight="2dp"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:textColor="#FFFFFF"
-                            android:background="@drawable/rectangle_edittext"
-                            android:layout_gravity="bottom"
-                            android:backgroundTint="@color/color2"
-                            android:layout_weight="1"
-                            android:text="Message"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content" />
-                        <TextView
+                            android:onClick="clickRequest"
                             android:layout_marginLeft="2dp"
                             android:gravity="center"
                             android:padding="5dp"

@@ -2,130 +2,183 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3D3D3"
+    android:background="@color/color2"
     tools:context="com.example.shipon.toletbd.fragment.RenterRegFragment">
-
-    <LinearLayout
-        android:layout_margin="15dp"
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputLayout
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/RenterNameET"
-                android:textColor="#FFFFFF"
-                android:paddingLeft="10dp"
-                android:hint="Name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputEditText
-                android:inputType="phone"
-                android:id="@+id/RenterContactET"
-                android:textColor="#FFFFFF"
-                android:paddingLeft="10dp"
-                android:hint="Contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/RenterOccupationET"
-                android:textColor="#FFFFFF"
-                android:paddingLeft="10dp"
-                android:hint="Occupation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
-
+            android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:textSize="18sp"
-                android:text="Status:"
+                android:textSize="15sp"
+                android:textColor="@color/color2"
+                android:text="Name*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <RadioGroup
-                android:orientation="horizontal"
+            <EditText
+
+                android:paddingLeft="10dp"
+                android:background="@drawable/rectangle_edittext"
+                android:id="@+id/RenterNameET"
+                android:textColor="@color/color2"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="35dp" />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/color2"
+                android:text="Contact*"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:paddingLeft="10dp"
+                android:background="@drawable/rectangle_edittext"
+                android:inputType="phone"
+                android:id="@+id/RenterContactET"
+                android:textColor="@color/color2"
+
+
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/color2"
+                android:text="Occupation*"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:paddingLeft="10dp"
+                android:background="@drawable/rectangle_edittext"
+                android:id="@+id/RenterOccupationET"
+                android:textColor="@color/color2"
+
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="35dp" />
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <RadioButton
-                    android:id="@+id/RenterMarriedRG"
-                    android:text="Married"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:textColor="@color/color2"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:text="Status:*"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <RadioButton
-                    android:id="@+id/RenterBachelorRG"
-                    android:text="Bachelor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <RadioGroup
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:textColor="@color/color2"
+                        android:id="@+id/RenterMarriedRG"
+                        android:text="Married"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/color2"
+                        android:id="@+id/RenterBachelorRG"
+                        android:text="Bachelor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            </RadioGroup>
+                </RadioGroup>
 
-        </LinearLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/RenterMonthlyIncome"
-                android:textColor="#FFFFFF"
-                android:paddingLeft="10dp"
-                android:hint="Monthly income"
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/color2"
+                android:text="Monthly Income*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputEditText
+            <EditText
+                android:paddingLeft="10dp"
+                android:background="@drawable/rectangle_edittext"
+                android:id="@+id/RenterMonthlyIncome"
+                android:textColor="@color/color2"
+
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/color2"
+                android:text="Password*"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:paddingLeft="10dp"
+                android:background="@drawable/rectangle_edittext"
                 android:inputType="textPassword"
                 android:id="@+id/RenterPasswordET"
-                android:textColor="#FFFFFF"
-                android:paddingLeft="10dp"
-                android:hint="Password"
+                android:textColor="@color/color2"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:textColor="@color/color2"
+                android:text="Confirm Password*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputEditText
+
+            <EditText
+                android:background="@drawable/rectangle_edittext"
                 android:inputType="textPassword"
                 android:id="@+id/RenterConfirmPasswordET"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/color2"
                 android:paddingLeft="10dp"
-                android:hint="Confirm password"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="35dp" />
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/RenterRegSignUpTV"
+                android:textColor="#FFFFFF"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:backgroundTint="@color/color2"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:background="@drawable/rectangle_edittext"
+                android:text="Sign up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.design.widget.TextInputLayout>
-    </LinearLayout>
-    <TextView
-        android:id="@+id/RenterRegSignUpTV"
-        android:textColor="@color/colorPrimary"
-        android:paddingTop="7dp"
-        android:paddingBottom="7dp"
-        android:backgroundTint="#FFFFFF"
-        android:textSize="14sp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="5dp"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:background="@drawable/round_shape"
-        android:text="Sign up"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

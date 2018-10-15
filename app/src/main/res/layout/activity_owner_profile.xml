@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.shipon.toletbd.activity.OwnerProfileActivity">
+    <android.support.v7.widget.Toolbar
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:onClick="OmyProfileBackArrowClick"
+                android:drawableTint="#FFFFFF"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/OProfileTitleTV"
+                android:textColor="#FFFFFF"
+                android:text="Profile"
+                android:textSize="20sp"
+                android:layout_weight="7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/EditTV"
+               android:onClick="Edit"
+                android:drawableTint="#FFFFFF"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_mode_edit_black_24dp"
+                android:layout_weight="1.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:background="@color/color2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_weight="1.3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text="Name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_weight=".3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text=":"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/OnameTV"
+                        android:layout_weight="1.8"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_weight="1.3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text="Occupation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_weight=".3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text=":"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/OoccupationTV"
+                        android:layout_weight="1.8"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_weight="1.3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text="Contact"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_weight=".3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text=":"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/OcontactTV"
+                        android:layout_weight="1.8"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_weight="1.3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text="Address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_weight=".3"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+                        android:text=":"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/OaddressTV"
+                        android:layout_weight="1.8"
+                        android:textColor="@color/color2"
+                        android:textSize="20sp"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/OCallNowTV"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textColor="#FFFFFF"
+                        android:background="@color/color2"
+                        android:text="Call Now"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</LinearLayout>

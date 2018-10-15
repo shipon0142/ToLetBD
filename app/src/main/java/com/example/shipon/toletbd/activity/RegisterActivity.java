@@ -17,7 +17,7 @@ import com.example.shipon.toletbd.fragment.RenterRegFragment;
 public class RegisterActivity extends AppCompatActivity {
 
     private TextView registerTextTitle;
-
+       public static String SIGNUPAS="NULL";
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -50,13 +50,21 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         registerTextTitle=findViewById(R.id.RegisterTitleText);
         registerTextTitle.setText("Register as renter");
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        RenterRegFragment renterRegFragment=new RenterRegFragment();
-        transaction.replace(R.id.RegisterMainLayout, renterRegFragment).commit();
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        RenterRegFragment renterRegFragment=new RenterRegFragment();
+        transaction.replace(R.id.RegisterMainLayout, renterRegFragment).commit();
+    }
 
+    public void RegisterBackArrowClick(View view) {
+        super.onBackPressed();
+    }
 }

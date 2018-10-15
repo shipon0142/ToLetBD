@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -27,9 +28,11 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.example.shipon.toletbd.activity.RegisterActivity.SIGNUPAS;
+
 public class RenterRegFragment extends Fragment {
 
-    TextInputEditText renterNameET, renterContactET, renterOccupationET, renterPasswordET, renterConfirmPasswordET, renterIncomeET;
+    EditText renterNameET, renterContactET, renterOccupationET, renterPasswordET, renterConfirmPasswordET, renterIncomeET;
     RadioButton marreidRG, bachelorRG;
     TextView renterSignupTV;
     private ProgressDialog progressD;
@@ -121,7 +124,7 @@ String name,contact,occupation,status,income,password;
                 data.putString("status", status);
                 data.putString("income", income);
                 data.putString("password", password);
-
+                SIGNUPAS="renter";
                 Intent intent =new Intent(getActivity(), VerificationActivity.class);
                 intent.putExtras(data);
                 startActivity(intent);

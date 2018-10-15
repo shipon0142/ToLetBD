@@ -2,6 +2,7 @@ package com.example.shipon.toletbd.fragment;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shipon.toletbd.R;
+import com.example.shipon.toletbd.activity.AccountActivity;
 import com.example.shipon.toletbd.activity.LoginActivity;
 import com.example.shipon.toletbd.activity.Main2Activity;
 import com.google.firebase.database.DataSnapshot;
@@ -21,9 +23,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.shipon.toletbd.activity.AccountActivity.check;
 import static com.example.shipon.toletbd.activity.Main2Activity.USER;
 import static com.example.shipon.toletbd.activity.Main2Activity.USER_NAME;
 import static com.example.shipon.toletbd.activity.Main2Activity.USER_PHONE;
+import static com.example.shipon.toletbd.activity.Main2Activity.loginPreferences;
+import static com.example.shipon.toletbd.activity.Main2Activity.ownersaveLogin;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +41,7 @@ public class OwnerSigninFragment extends Fragment {
     CheckBox ownerRememberPasswordCB;
     String Phoneno,Name;
     String Password;
+    private SharedPreferences.Editor loginPrefsEditor;
     DatabaseReference myDatabaseRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference appertmentsRef = myDatabaseRef.child("Appertments");
     DatabaseReference ownerRef = myDatabaseRef.child("Owners");
@@ -53,6 +60,18 @@ public class OwnerSigninFragment extends Fragment {
         ownerPhonenoET=view.findViewById(R.id.OwnerPhoneNoET);
         ownerPasswordET=view.findViewById(R.id.OwnerPasswordET);
         ownerRememberPasswordCB=view.findViewById(R.id.OwnerRememberPasswordCB);
+        loginPreferences = getContext().getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+
+
+        ownersaveLogin = loginPreferences.getBoolean("saveOwnerLogin", false);
+        if (ownersaveLogin == true) {
+            ownerPhonenoET.setText(loginPreferences.getString("Ownerusername", ""));
+            ownerPasswordET.setText(loginPreferences.getString("Ownerpassword", ""));
+            ownerRememberPasswordCB.setChecked(true);
+
+
+        }
         setOnClickListener();
     return view;
     }
@@ -60,6 +79,7 @@ public class OwnerSigninFragment extends Fragment {
         ownerSigninTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                save();
                 ownerRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
                     @Override
@@ -82,8 +102,15 @@ public class OwnerSigninFragment extends Fragment {
                             USER_NAME=Name;
 
                             Toast.makeText(getContext(),"Succesful",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getActivity(),Main2Activity.class);
-                            startActivity(intent);
+                            if(check==true){
+                                Intent intent = new Intent(getActivity(),AccountActivity.class);
+                                startActivity(intent);
+                            }
+                            else {
+                                Intent intent = new Intent(getActivity(),Main2Activity.class);
+                                startActivity(intent);
+                            }
+                            check=false;
                             getActivity().finish();
                         }
                         else {
@@ -100,5 +127,18 @@ public class OwnerSigninFragment extends Fragment {
             }
         });
     }
+    private void save() {
+        if (ownerRememberPasswordCB.isChecked()) {
+            loginPrefsEditor.putBoolean("saveOwnerLogin", true);
+            loginPrefsEditor.putString("Ownerusername", ownerPhonenoET.getText().toString());
+            loginPrefsEditor.putString("Ownerpassword", ownerPasswordET.getText().toString());
+
+            loginPrefsEditor.commit();
+        } else {
+            loginPrefsEditor.clear();
+            loginPrefsEditor.commit();
+        }
+    }
+
 
 }

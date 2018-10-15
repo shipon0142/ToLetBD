@@ -1,28 +1,45 @@
 package com.example.shipon.toletbd.fragment;
 
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shipon.toletbd.R;
+import com.example.shipon.toletbd.activity.VerificationActivity;
 import com.example.shipon.toletbd.database.FirebaseClient;
 import com.example.shipon.toletbd.models.Owner;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
 import org.w3c.dom.Text;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.example.shipon.toletbd.activity.RegisterActivity.SIGNUPAS;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class OwnerRegFragment extends Fragment {
-TextInputEditText ownerNameET,ownerContactET,ownerOccupationET,ownerAddressET,ownerPasswordET,ownerConfirmPasswordET;
+EditText ownerNameET,ownerContactET,ownerOccupationET,ownerAddressET,ownerPasswordET,ownerConfirmPasswordET;
 TextView ownerSignupTV;
-
+    private ProgressDialog progressD;
+    private FirebaseAuth mAuth;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks verificationCallBacks;
+    private String phoneVerificationId = null;
+    private PhoneAuthProvider.ForceResendingToken mResendToken;
+    String ownerName,ownerContact,ownerOccupation,ownerAddress,ownerPassword;
     public OwnerRegFragment() {
         // Required empty public constructor
     }
@@ -40,23 +57,81 @@ TextView ownerSignupTV;
         ownerPasswordET=view.findViewById(R.id.OwnerPasswordET);
         ownerConfirmPasswordET=view.findViewById(R.id.OwnerConfirmPasswordET);
         ownerSignupTV=view.findViewById(R.id.OwnerRegSignUpTV);
+        progressD = new ProgressDialog(getContext());
+        progressD.setMessage("Sending verification code...");
+        progressD.setCancelable(false);
+        mAuth = FirebaseAuth.getInstance();
         setClickListener();
         return view;
     }
+    private void startPhoneNumberVerification(String phoneNumber) {
+        setUpVerification();
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phoneNumber,
+                60,
+                TimeUnit.SECONDS,
+                getActivity(),
+                verificationCallBacks);
 
+        //mVerificationInProgress = true;
+    }
+    private void setUpVerification() {
+        // Toast.makeText(getContext(),"asce",Toast.LENGTH_SHORT).show();
+        verificationCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(PhoneAuthCredential credential) {
+
+
+            }
+
+            @Override
+            public void onVerificationFailed(FirebaseException e) {
+                Toast.makeText(getContext(), "Verification code not sent.", Toast.LENGTH_SHORT).show();
+                progressD.cancel();
+            }
+
+            @Override
+            public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                Toast.makeText(getContext(), "Verification code sent.", Toast.LENGTH_SHORT).show();
+                progressD.cancel();
+                phoneVerificationId = s;
+                mResendToken = forceResendingToken;
+
+
+                Bundle data = new Bundle();
+
+                data.putString("phoneVerificationId", phoneVerificationId);
+                data.putString("ownerphone", ownerContact);
+                data.putString("ownername", ownerName);
+                data.putString("owneroccupation", ownerOccupation);
+                data.putString("owneraddress", ownerAddress);
+                data.putString("ownerpassword", ownerPassword);
+                SIGNUPAS="owner";
+                Intent intent =new Intent(getActivity(), VerificationActivity.class);
+                intent.putExtras(data);
+                startActivity(intent);
+            }
+
+        };
+
+
+    }
     private void setClickListener() {
         ownerSignupTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkAll()){
-                    Owner owner=new Owner(ownerNameET.getText().toString(),
+                  /*  Owner owner=new Owner(ownerNameET.getText().toString(),
                                           ownerContactET.getText().toString(),
                                           ownerOccupationET.getText().toString(),
                                           ownerAddressET.getText().toString(),
                                           ownerPasswordET.getText().toString());
                     FirebaseClient client=new FirebaseClient();
                     client.addOwner(owner);
-                    Toast.makeText(getContext(),"Registration succesfull",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Registration succesfull",Toast.LENGTH_SHORT).show();*/
+
+                    progressD.show();
+                    startPhoneNumberVerification(ownerContact);
                 }
             }
         });
@@ -98,6 +173,13 @@ TextView ownerSignupTV;
         if(!ownerPasswordET.getText().toString().equals(ownerConfirmPasswordET.getText().toString())){
             ownerConfirmPasswordET.setError("Password doesn,t match");
             flag=false;
+        }
+        if(flag==true){
+            ownerName=ownerNameET.getText().toString();
+                    ownerContact=ownerContactET.getText().toString();
+                            ownerOccupation=ownerOccupationET.getText().toString();
+                                    ownerAddress=ownerAddressET.getText().toString();
+                                            ownerPassword=ownerPasswordET.getText().toString();
         }
 
 

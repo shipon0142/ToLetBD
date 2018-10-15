@@ -3,10 +3,12 @@
 
 
     <item
+        android:icon="@drawable/ic_account_circle_black_24dp"
         android:id="@+id/navigation_renter"
         android:title="As Renter" />
 
     <item
+        android:icon="@drawable/ic_account_circle_black_24dp"
         android:id="@+id/navigation_owner"
         android:title="As Owner" />
 </menu>

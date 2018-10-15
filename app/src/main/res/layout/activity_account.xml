@@ -38,30 +38,34 @@
         <LinearLayout
             android:background="#15416A"
             android:padding="10dp"
+            android:gravity="center"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80dp">
             <TextView
+                android:id="@+id/NameAccountTV"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:text="Shipon Sarder (Owner)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/PhoneNoAccountTV"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
-                android:text="01942040142"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/MainLayoutAccount"
             android:layout_margin="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:onClick="myProfileClick"
                 android:layout_marginTop="10dp"
                 android:text="  Profile"
                 android:textColor="#15416A"
@@ -71,6 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:onClick="clickPostOrRentTV"
+                android:id="@+id/PostOrRentTV"
                 android:layout_marginTop="15dp"
                 android:text="  My Post"
                 android:textColor="#15416A"
@@ -80,15 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:layout_marginTop="15dp"
-                android:text="  Message"
-                android:textColor="#15416A"
-                android:drawableTint="#15416A"
-                android:gravity="center|left"
-                android:drawableLeft="@drawable/ic_drafts_black_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
+                android:onClick="ClickSwitchAccount"
                 android:layout_marginTop="15dp"
                 android:text="  Switch account"
                 android:textColor="#15416A"
@@ -97,18 +95,11 @@
                 android:drawableLeft="@drawable/ic_face_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <TextView
+                android:onClick="ClickSignOut"
                 android:layout_marginTop="15dp"
-                android:text="  Notification"
-                android:textColor="#15416A"
-                android:drawableTint="#15416A"
-                android:gravity="center|left"
-                android:drawableLeft="@drawable/ic_notifications_black_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:layout_marginTop="15dp"
-                android:text="  Help"
+                android:text="  Sign out"
                 android:textColor="#15416A"
                 android:drawableTint="#15416A"
                 android:gravity="center|left"
@@ -117,5 +108,26 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/SignInAccountLayout"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:onClick="clickSigninAccount"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/color2"
+            android:background="@drawable/rectangle_edittext"
+            android:textSize="20sp"
+            android:text="Sign In"
+            android:id="@+id/AccountSighinTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>
